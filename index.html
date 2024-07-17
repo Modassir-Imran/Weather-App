@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App | Modassir</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+
+  <body class="bg-sky-300">
+    <div class="wrapper">
+      <div
+        class="heading heading w-full h-24 text-4xl font-semibold flex justify-center bg-gray-500"
+      >
+        <h1 class="bg-sky-300 m-3 p-3 px-20 rounded-3xl uppercase">
+          Weather App
+        </h1>
+      </div>
+      <!-- main nav tab -->
+
+        <div class="mainBtn w-full h-16 flex justify-evenly mt-8">
+          <div
+            data-userWeather
+            class="tab w-52 rounded-3xl text-center font-medium text-l pt-4 bg-white cursor-pointer uppercase tracking-widest border-gray-500 border-2"
+          >
+            <p >Your Weather</p>
+          </div>
+          <!-- search form  -->
+          <div class="searchBar flex">
+            <form class=" form-container hidden" data-searchForm>
+              <div class="w-96">
+                <input
+                  class="placeholder:italic placeholder:text-slate-400 block bg-white w-full h-full border-2 border-black border-r-0 rounded-l-3xl py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-1 sm:text-xl"
+                  placeholder="Search for anything..."
+                  type="text"
+                  name="search"
+                  data-searchForm
+                  data-searchInput
+                />
+              </div>
+              <button class=" btn" type="submit">
+                <img
+                  src="./Images/search.png"
+                  loading="lazy"
+                  class="searchbtn w-16 h-16 border-2 border-l-0 border-black rounded-r-2xl bg-slate-400"
+                />
+              </button>
+            </form>
+          </div>
+          <div
+            class="tab w-52 rounded-3xl text-center font-medium text-l pt-4 bg-white cursor-pointer uppercase tracking-widest border-gray-500 border-2"
+            data-searchWeather
+          >
+            <p >Search Weather</p>
+          </div>
+        </div>
+
+      <!-- nav end here -->
+      <div class="centerItem grid justify-items-center w-full gap-36">
+        <!-- grant location container -->
+        <div
+          class="grant-location-container flex flex-col  content-center gap-14 items-center"
+        >
+          <div>
+            <img
+              src="/Images/location.png"
+              width="80"
+              height="80"
+              loading="lazy"
+            />
+          </div>
+          <div class="text-2xl font-medium">
+            <p>Grant Location Access</p>
+          </div>
+          <div class="text-2xl font-semibold">
+            <p>Allow Access to get weather Information</p>
+          </div>
+          <div
+            class="w-40 h-20 border-2 text-2xl text-center pt-4 bg-green-500 rounded-2xl"
+          >
+            <button class="btn" data-grantAccess>Grant Access</button>
+          </div>
+        </div>
+
+        <!-- show weather info -->
+        <div class="weather-container user-info-container hidden flex-col">
+          <div class="name flex justify-center gap-72 mt-8">
+            <div class="flex flex-col items-center">
+              <img data-countryIcon class="w-48 h-16 bg-cover px-12" />
+              <p
+                class="w-72 h-12 text-center text-2xl pt-4 font-serif"
+                data-cityName
+              ></p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img data-weatherIcon class="w-48 h-16 bg-cover px-12" />
+              <p
+                class="w-72 h-12 text-center text-2xl pt-4 font-serif"
+                data-weatherDesc
+              ></p>
+            </div>
+          </div>
+          <p
+            class="w-48 h-16 text-center text-6xl font-medium self-center"
+            data-temp
+          ></p>
+          <!-- 3 cards parameter -->
+          <div class="parameter-container flex gap-44 p-8">
+            <!-- card-1 -->
+            <div
+              class="parameter w-56 rounded-lg p-4 bg-gray-500 border-double border-8 border-sky-300"
+            >
+              <img src="./Images/wind.png" />
+              <p class="text-center text-3xl pt-3 font-serif">windspeed</p>
+              <p class="text-center text-3xl pt-3 font-bold" data-windspeed></p>
+            </div>
+            <!-- card-2  -->
+            <div
+              class="parameter w-56 rounded-lg p-4 bg-gray-500 border-double border-8 border-sky-300"
+            >
+              <img src="./Images/humidity.png" />
+              <p class="text-center text-3xl pt-3 font-serif">humidity</p>
+              <p class="text-center text-3xl pt-3 font-bold" data-humidity></p>
+            </div>
+            <!-- card-3 -->
+            <div
+              class="parameter w-56 rounded-lg p-4 bg-gray-500 border-double border-8 border-sky-300"
+            >
+              <img src="./Images/cloud.png" />
+              <p class="text-center text-3xl pt-3 font-serif">Clouds</p>
+              <p
+                class="text-center text-3xl pt-3 font-bold"
+                data-cloudiness
+              ></p>
+            </div>
+          </div>
+        </div>
+        <!-- loading screen container -->
+        <div class="hidden loading-container flex-col items-center pt-10">
+          <img src="./Images/loading.gif" width="150" height="150" />
+          <p class="text-2xl tracking-widest">Loading...</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
